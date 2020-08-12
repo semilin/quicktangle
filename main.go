@@ -40,7 +40,8 @@ func main() {
 		line := scanner.Text()
 		line = strings.TrimSpace(line)
 		if in_src {
-			if strings.HasPrefix(strings.ToLower(line), "#+end_src") {
+			lowerline := strings.ToLower(line)
+			if strings.HasPrefix(lowerline, "#+end_src") || lowerline == ":eval no" {
 				in_src = false
 				continue
 			} else {
